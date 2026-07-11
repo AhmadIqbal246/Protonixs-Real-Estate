@@ -14,7 +14,6 @@ export default function Home() {
       <PageBackgroundVideo />
       <HeroSection />
       <FeaturedPropertiesSection />
-      <ServicesSection />
       <WhyChooseUsSection />
       <StatisticsSection />
       <TestimonialsSection />

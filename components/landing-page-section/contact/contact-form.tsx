@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const inputClassName =
-  "w-full rounded-xl border border-white/25 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none backdrop-blur-sm transition-colors focus:border-white/50 focus:bg-black/50 focus:ring-2 focus:ring-white/15";
+  "w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-gray-400 outline-none backdrop-blur-md transition-colors focus:border-white/50 focus:bg-white/15 focus:ring-2 focus:ring-white/15";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,7 +13,7 @@ export function ContactForm() {
   };
   if (submitted) {
     return (
-      <div className="flex min-h-[320px] flex-col items-center justify-center rounded-xl border border-white/20 bg-black/30 p-8 text-center">
+      <div className="flex min-h-[320px] flex-col items-center justify-center rounded-xl border border-white/25 bg-white/10 p-8 text-center backdrop-blur-md">
         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-white/25 bg-white/10">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-7 w-7 text-white" aria-hidden="true">
             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />

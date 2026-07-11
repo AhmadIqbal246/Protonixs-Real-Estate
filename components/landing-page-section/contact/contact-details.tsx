@@ -11,8 +11,8 @@ function ContactDetailItem({ label, value, href }: ContactDetailItemProps) {
     <span className="text-sm font-medium text-white drop-shadow-sm">{value}</span>
   );
   return (
-    <div className="rounded-xl border border-white/15 bg-black/25 px-4 py-3 backdrop-blur-sm">
-      <p className="text-xs font-medium uppercase tracking-wider text-gray-400">{label}</p>
+    <div className="rounded-xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-md">
+      <p className="text-xs font-medium uppercase tracking-wider text-gray-300">{label}</p>
       {href ? (
         <a href={href} className="mt-1 inline-block cursor-pointer transition-colors hover:text-gray-200">
           {content}
