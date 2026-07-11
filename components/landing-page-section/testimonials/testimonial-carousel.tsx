@@ -32,10 +32,10 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
     (direction: "left" | "right") => {
       const track = trackRef.current;
       if (!track) return;
-      const card = track.querySelector("blockquote");
-      const cardWidth = card?.getBoundingClientRect().width ?? 380;
+      const slide = track.querySelector("[data-testimonial-slide]");
+      const cardWidth = slide?.getBoundingClientRect().width ?? 380;
       track.scrollBy({
-        left: direction === "left" ? -(cardWidth + 24) : cardWidth + 24,
+        left: direction === "left" ? -(cardWidth + 16) : cardWidth + 16,
         behavior: "smooth",
       });
       pauseAutoScroll();
@@ -91,18 +91,19 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
   }
   return (
     <div>
-      <div className="flex items-center gap-3 md:gap-5">
+      <div className="relative md:flex md:items-center md:gap-5">
         <CarouselNavButton
           direction="left"
           onClick={() => scrollByCard("left")}
           label="Previous testimonial"
+          className="absolute left-0 top-1/2 z-20 -translate-y-1/2 md:static md:translate-y-0"
         />
-        <div className="relative min-w-0 flex-1">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black/40 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black/40 to-transparent" />
+        <div className="relative min-w-0 md:flex-1">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-black/40 to-transparent md:w-12" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-black/40 to-transparent md:w-12" />
           <div
             ref={trackRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-6 [&::-webkit-scrollbar]:hidden"
             onMouseEnter={() => {
               isPausedRef.current = true;
               setIsPaused(true);
@@ -116,7 +117,13 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
             aria-label="Testimonials carousel"
           >
             {loopItems.map((testimonial, index) => (
-              <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+              <div
+                key={`${testimonial.id}-${index}`}
+                data-testimonial-slide
+                className="w-[calc(100vw-3rem)] max-w-[380px] shrink-0 snap-center md:w-[380px]"
+              >
+                <TestimonialCard testimonial={testimonial} />
+              </div>
             ))}
           </div>
         </div>
@@ -124,6 +131,7 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
           direction="right"
           onClick={() => scrollByCard("right")}
           label="Next testimonial"
+          className="absolute right-0 top-1/2 z-20 -translate-y-1/2 md:static md:translate-y-0"
         />
       </div>
       <div className="mt-6 flex justify-center">

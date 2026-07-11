@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VEX",
+  title: "Protonix Estate",
   description: "Where legacy meets location. A premier real estate agency for buyers, sellers, and investors.",
 };
 

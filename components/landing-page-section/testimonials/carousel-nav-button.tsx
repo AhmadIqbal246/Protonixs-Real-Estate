@@ -2,14 +2,20 @@ interface CarouselNavButtonProps {
   direction: "left" | "right";
   onClick: () => void;
   label: string;
+  className?: string;
 }
 
-export function CarouselNavButton({ direction, onClick, label }: CarouselNavButtonProps) {
+export function CarouselNavButton({
+  direction,
+  onClick,
+  label,
+  className = "",
+}: CarouselNavButtonProps) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/50 hover:bg-white/20 md:h-16 md:w-16"
+      className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/50 hover:bg-black/55 md:h-16 md:w-16 md:bg-white/10 md:hover:bg-white/20 ${className}`}
       aria-label={label}
     >
       <svg
@@ -19,7 +25,7 @@ export function CarouselNavButton({ direction, onClick, label }: CarouselNavButt
         strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-7 w-7 md:h-8 md:w-8"
+        className="h-5 w-5 md:h-8 md:w-8"
         aria-hidden="true"
       >
         {direction === "left" ? (

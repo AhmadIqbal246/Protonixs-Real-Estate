@@ -6,7 +6,7 @@ export function HeroNavbar() {
   return (
     <header className="relative z-10 px-6 pt-6 md:px-12 lg:px-16">
       <nav className="liquid-glass relative flex items-center justify-between rounded-xl px-4 py-2">
-        <span className="text-2xl font-semibold tracking-tight">VEX</span>
+        <span className="text-xl font-semibold tracking-tight md:text-2xl">Protonix Estate</span>
         <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link}>

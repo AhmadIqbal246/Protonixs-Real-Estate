@@ -5,7 +5,7 @@ export const testimonials: Testimonial[] = [
     id: "1",
     name: "Sarah Mitchell",
     role: "Home Buyer",
-    quote: "VEX made buying our first home feel effortless. Their advisor walked us through every step and found us the perfect neighborhood.",
+    quote: "Protonix Estate made buying our first home feel effortless. Their advisor walked us through every step and found us the perfect neighborhood.",
     rating: 5,
   },
   {
@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
     id: "4",
     name: "Marcus Thompson",
     role: "First-Time Seller",
-    quote: "Selling felt overwhelming until VEX stepped in. They priced our home perfectly and we closed above asking in under two weeks.",
+    quote: "Selling felt overwhelming until Protonix Estate stepped in. They priced our home perfectly and we closed above asking in under two weeks.",
     rating: 5,
   },
   {
@@ -40,7 +40,7 @@ export const testimonials: Testimonial[] = [
     id: "6",
     name: "David Okonkwo",
     role: "Commercial Landlord",
-    quote: "VEX handled our portfolio expansion across three cities with the same level of care as a single-family purchase.",
+    quote: "Protonix Estate handled our portfolio expansion across three cities with the same level of care as a single-family purchase.",
     rating: 5,
   },
 ];

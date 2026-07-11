@@ -1,4 +1,5 @@
 import { benefits } from "@/lib/data/benefits";
+import { ScrollReveal } from "@/components/shared-components/scroll-reveal";
 import { BenefitCard } from "./benefit-card";
 
 function TimelineNode() {
@@ -20,31 +21,34 @@ export function BenefitTimeline() {
         {benefits.map((benefit, index) => {
           const isLeft = index % 2 === 0;
           return (
-            <li
-              key={benefit.id}
-              className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2rem_1fr] md:items-center md:gap-8"
-            >
-              {isLeft ? (
-                <>
-                  <div className="order-2 w-full max-w-md justify-self-center md:order-none md:col-start-1 md:justify-self-end">
-                    <BenefitCard benefit={benefit} step={index + 1} align="right" />
-                  </div>
-                  <div className="order-1 flex justify-center md:col-start-2">
-                    <TimelineNode />
-                  </div>
-                  <div className="hidden md:col-start-3 md:block" aria-hidden="true" />
-                </>
-              ) : (
-                <>
-                  <div className="hidden md:col-start-1 md:block" aria-hidden="true" />
-                  <div className="order-1 flex justify-center md:col-start-2">
-                    <TimelineNode />
-                  </div>
-                  <div className="order-2 w-full max-w-md justify-self-center md:order-none md:col-start-3 md:justify-self-start">
-                    <BenefitCard benefit={benefit} step={index + 1} align="left" />
-                  </div>
-                </>
-              )}
+            <li key={benefit.id}>
+              <ScrollReveal
+                delay={index * 100}
+                variant={isLeft ? "slide-right" : "slide-left"}
+                className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2rem_1fr] md:items-center md:gap-8"
+              >
+                {isLeft ? (
+                  <>
+                    <div className="order-2 w-full max-w-md justify-self-center md:order-none md:col-start-1 md:justify-self-end">
+                      <BenefitCard benefit={benefit} step={index + 1} align="right" />
+                    </div>
+                    <div className="order-1 flex justify-center md:col-start-2">
+                      <TimelineNode />
+                    </div>
+                    <div className="hidden md:col-start-3 md:block" aria-hidden="true" />
+                  </>
+                ) : (
+                  <>
+                    <div className="hidden md:col-start-1 md:block" aria-hidden="true" />
+                    <div className="order-1 flex justify-center md:col-start-2">
+                      <TimelineNode />
+                    </div>
+                    <div className="order-2 w-full max-w-md justify-self-center md:order-none md:col-start-3 md:justify-self-start">
+                      <BenefitCard benefit={benefit} step={index + 1} align="left" />
+                    </div>
+                  </>
+                )}
+              </ScrollReveal>
             </li>
           );
         })}

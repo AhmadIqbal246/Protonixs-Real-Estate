@@ -1,4 +1,5 @@
 import type { ServiceItem } from "@/lib/data/services";
+import { ScrollReveal } from "@/components/shared-components/scroll-reveal";
 import { ServiceCard } from "./service-card";
 
 interface ServiceListProps {
@@ -9,7 +10,9 @@ export function ServiceList({ services }: ServiceListProps) {
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
       {services.map((service, index) => (
-        <ServiceCard key={service.id} service={service} step={index + 1} />
+        <ScrollReveal key={service.id} delay={index * 120} variant="fade-up">
+          <ServiceCard service={service} step={index + 1} />
+        </ScrollReveal>
       ))}
     </div>
   );
