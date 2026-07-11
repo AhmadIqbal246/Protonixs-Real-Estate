@@ -1,0 +1,141 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { Testimonial } from "@/lib/types/testimonial";
+import { TestimonialCard } from "./testimonial-card";
+import { CarouselNavButton } from "./carousel-nav-button";
+
+interface TestimonialCarouselProps {
+  testimonials: Testimonial[];
+}
+
+const AUTO_SCROLL_SPEED = 0.5;
+const RESUME_DELAY_MS = 2500;
+
+export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isPausedRef = useRef(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  const loopItems = [...testimonials, ...testimonials];
+  const pauseAutoScroll = useCallback(() => {
+    isPausedRef.current = true;
+    setIsPaused(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      isPausedRef.current = false;
+      setIsPaused(false);
+    }, RESUME_DELAY_MS);
+  }, []);
+  const scrollByCard = useCallback(
+    (direction: "left" | "right") => {
+      const track = trackRef.current;
+      if (!track) return;
+      const card = track.querySelector("blockquote");
+      const cardWidth = card?.getBoundingClientRect().width ?? 380;
+      track.scrollBy({
+        left: direction === "left" ? -(cardWidth + 24) : cardWidth + 24,
+        behavior: "smooth",
+      });
+      pauseAutoScroll();
+    },
+    [pauseAutoScroll]
+  );
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+  useEffect(() => {
+    if (showAll) return;
+    const track = trackRef.current;
+    if (!track) return;
+    let animationId = 0;
+    const tick = () => {
+      if (!isPausedRef.current) {
+        track.scrollLeft += AUTO_SCROLL_SPEED;
+        const loopWidth = track.scrollWidth / 2;
+        if (track.scrollLeft >= loopWidth) {
+          track.scrollLeft = 0;
+        }
+      }
+      animationId = requestAnimationFrame(tick);
+    };
+    animationId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animationId);
+  }, [showAll]);
+  useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, []);
+  if (showAll) {
+    return (
+      <div>
+        <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} variant="grid" />
+          ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(false)}
+            className="liquid-glass cursor-pointer rounded-lg border border-white/20 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+            aria-label="Show testimonials carousel"
+          >
+            Show Carousel
+          </button>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <div className="flex items-center gap-3 md:gap-5">
+        <CarouselNavButton
+          direction="left"
+          onClick={() => scrollByCard("left")}
+          label="Previous testimonial"
+        />
+        <div className="relative min-w-0 flex-1">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black/40 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black/40 to-transparent" />
+          <div
+            ref={trackRef}
+            className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            onMouseEnter={() => {
+              isPausedRef.current = true;
+              setIsPaused(true);
+            }}
+            onMouseLeave={() => {
+              isPausedRef.current = false;
+              setIsPaused(false);
+            }}
+            onTouchStart={pauseAutoScroll}
+            onScroll={pauseAutoScroll}
+            aria-label="Testimonials carousel"
+          >
+            {loopItems.map((testimonial, index) => (
+              <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+            ))}
+          </div>
+        </div>
+        <CarouselNavButton
+          direction="right"
+          onClick={() => scrollByCard("right")}
+          label="Next testimonial"
+        />
+      </div>
+      <div className="mt-6 flex justify-center">
+        <button
+          type="button"
+          onClick={() => setShowAll(true)}
+          className="cursor-pointer rounded-lg bg-white px-8 py-3 text-sm font-medium text-black transition-colors hover:bg-gray-100"
+          aria-label="See all testimonial cards"
+        >
+          See More Cards
+        </button>
+      </div>
+    </div>
+  );
+}
