@@ -2,6 +2,7 @@
 
 import { AnimatedHeading } from "@/components/shared-components/animated-heading";
 import { FadeIn } from "@/components/shared-components/fade-in";
+import Link from "next/link";
 import { HeroNavbar } from "./hero-navbar";
 
 export function HeroSection() {
@@ -22,18 +23,18 @@ export function HeroSection() {
           </FadeIn>
           <FadeIn delay={1200} duration={1000}>
             <div className="flex flex-wrap justify-center gap-4">
-              <button
-                type="button"
-                className="cursor-pointer rounded-lg bg-white px-8 py-3 font-medium text-black"
+              <Link
+                href="/contact"
+                className="cursor-pointer rounded-lg bg-white px-8 py-3 font-medium text-black transition-colors hover:bg-gray-100"
               >
                 Start a Chat
-              </button>
-              <button
-                type="button"
+              </Link>
+              <Link
+                href="/about"
                 className="liquid-glass cursor-pointer rounded-lg border border-white/20 px-8 py-3 font-medium text-white transition-colors hover:bg-white hover:text-black"
               >
                 Explore Now
-              </button>
+              </Link>
             </div>
           </FadeIn>
         </div>

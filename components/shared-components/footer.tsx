@@ -3,11 +3,11 @@ import { ScrollReveal } from "@/components/shared-components/scroll-reveal";
 import { contactInfo } from "@/lib/data/contact-info";
 
 const footerLinks = [
-  { label: "Properties", href: "#featured-properties" },
-  { label: "Services", href: "#services" },
-  { label: "Why Choose Us", href: "#why-choose-us" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Properties", href: "/#featured-properties" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
