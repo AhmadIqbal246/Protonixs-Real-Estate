@@ -1,3 +1,4 @@
+import { ChatWidget } from "@/components/chat/chat-widget";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -21,7 +22,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-black font-sans text-white antialiased">{children}</body>
+      <body className="bg-black font-sans text-white antialiased">
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }
