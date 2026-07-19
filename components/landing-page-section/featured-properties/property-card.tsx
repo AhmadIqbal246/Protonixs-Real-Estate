@@ -15,7 +15,7 @@ function formatSpecs(property: Property) {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <article className="group w-[220px] shrink-0 snap-start overflow-hidden rounded-xl border border-white/25 bg-black/35 shadow-[0_8px_32px_rgba(0,0,0,0.15)] backdrop-blur-md sm:w-[240px] md:w-[252px]">
+    <article className="group w-[220px] shrink-0 overflow-hidden rounded-xl border border-white/25 bg-black/70 shadow-[0_8px_32px_rgba(0,0,0,0.15)] sm:w-[240px] md:w-[252px]">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={property.image}
@@ -23,6 +23,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="252px"
+          loading="lazy"
         />
         <span className="absolute left-3 top-3 rounded-md bg-white px-2.5 py-0.5 text-[11px] font-semibold text-black">
           {property.tag}

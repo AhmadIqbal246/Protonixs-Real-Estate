@@ -9,7 +9,7 @@ export function FeaturedPropertiesSection() {
       id="featured-properties"
       className="relative px-6 py-20 md:px-12 lg:px-16"
     >
-      <div className="rounded-2xl border border-white/20 bg-black/25 p-6 backdrop-blur-sm md:p-10">
+      <div className="rounded-2xl border border-white/20 bg-black/40 p-6 backdrop-blur-sm md:p-10">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Featured Properties"
