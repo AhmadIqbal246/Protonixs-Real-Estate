@@ -1,6 +1,24 @@
+export interface ChatPropertyCard {
+  id: string;
+  title: string;
+  location: string;
+  price: string;
+  tag: string;
+  image: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+}
+
 export interface ChatMessage {
   role: "user" | "assistant";
   content: string;
+  properties?: ChatPropertyCard[];
+}
+
+export interface ChatApiResponse {
+  reply: string;
+  properties: ChatPropertyCard[];
 }
 
 export const CHAT_WELCOME_MESSAGE =

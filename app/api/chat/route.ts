@@ -1,3 +1,9 @@
+import { parseAssistantReply } from "@/lib/chat/parse-assistant-reply";
+import {
+  matchPropertiesFromText,
+  mergePropertyCards,
+  resolvePropertiesByIds,
+} from "@/lib/chat/match-properties";
 import { buildChatSystemPrompt } from "@/lib/data/chat-knowledge";
 import type { ChatMessage } from "@/lib/types/chat";
 import OpenAI from "openai";
@@ -40,8 +46,8 @@ export async function POST(request: Request) {
     });
     const completion = await groq.chat.completions.create({
       model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-      temperature: 0.4,
-      max_tokens: 700,
+      temperature: 0.25,
+      max_tokens: 800,
       messages: [
         { role: "system", content: buildChatSystemPrompt() },
         ...messages.map((message: ChatMessage) => ({
@@ -50,11 +56,18 @@ export async function POST(request: Request) {
         })),
       ],
     });
-    const reply = completion.choices[0]?.message?.content?.trim();
-    if (!reply) {
+    const rawReply = completion.choices[0]?.message?.content?.trim();
+    if (!rawReply) {
       return NextResponse.json({ error: "No response from assistant." }, { status: 502 });
     }
-    return NextResponse.json({ reply });
+    const parsed = parseAssistantReply(rawReply);
+    const fromIds = resolvePropertiesByIds(parsed.propertyIds);
+    const fromText = matchPropertiesFromText(parsed.message);
+    const properties = mergePropertyCards(fromIds, fromText);
+    return NextResponse.json({
+      reply: parsed.message,
+      properties,
+    });
   } catch (error) {
     console.error("Chat API error:", error);
     return NextResponse.json(

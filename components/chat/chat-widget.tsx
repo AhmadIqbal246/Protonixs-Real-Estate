@@ -1,7 +1,11 @@
 "use client";
 
 import { ChatPanel } from "@/components/chat/chat-panel";
-import { CHAT_WELCOME_MESSAGE, type ChatMessage } from "@/lib/types/chat";
+import {
+  CHAT_WELCOME_MESSAGE,
+  type ChatApiResponse,
+  type ChatMessage,
+} from "@/lib/types/chat";
 import { useState } from "react";
 
 export function ChatWidget() {
@@ -25,13 +29,25 @@ export function ChatWidget() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages }),
+        body: JSON.stringify({
+          messages: nextMessages.map(({ role, content: messageContent }) => ({
+            role,
+            content: messageContent,
+          })),
+        }),
       });
-      const data = await response.json();
+      const data = (await response.json()) as ChatApiResponse & { error?: string };
       if (!response.ok) {
         throw new Error(data.error || "Something went wrong.");
       }
-      setMessages((current) => [...current, { role: "assistant", content: data.reply }]);
+      setMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: data.reply,
+          properties: data.properties ?? [],
+        },
+      ]);
     } catch (submitError) {
       const message =
         submitError instanceof Error ? submitError.message : "Unable to send message.";
@@ -53,32 +69,45 @@ export function ChatWidget() {
           onClose={() => setOpen(false)}
         />
       )}
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white text-black shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
-        aria-label={open ? "Close chat assistant" : "Open chat assistant"}
-        aria-expanded={open}
-      >
-        {open ? (
-          <span className="text-xl leading-none">&#10005;</span>
-        ) : (
-          <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
-            <path
-              d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v7A2.5 2.5 0 0117.5 16H10l-4.2 3.2A.8.8 0 014 18.6V6.5z"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M8 9h8M8 12h5"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-            />
-          </svg>
+      <div className="flex items-center gap-3">
+        {!open && (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="cursor-pointer rounded-full border border-white/25 bg-black/55 px-4 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform hover:scale-[1.02]"
+            aria-label="Open chat assistant"
+          >
+            <p className="text-sm font-semibold text-white">Chat with us</p>
+            <p className="text-[11px] text-gray-300">We&apos;re here to help</p>
+          </button>
         )}
-      </button>
+        <button
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white text-black shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
+          aria-label={open ? "Close chat assistant" : "Open chat assistant"}
+          aria-expanded={open}
+        >
+          {open ? (
+            <span className="text-xl leading-none">&#10005;</span>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
+              <path
+                d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v7A2.5 2.5 0 0117.5 16H10l-4.2 3.2A.8.8 0 014 18.6V6.5z"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8 9h8M8 12h5"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
     </div>
   );
 }

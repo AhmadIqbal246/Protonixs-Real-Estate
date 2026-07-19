@@ -45,7 +45,12 @@ export function ChatPanel({
       </div>
       <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
         {messages.map((message, index) => (
-          <ChatMessageBubble key={`${message.role}-${index}`} role={message.role} content={message.content} />
+          <ChatMessageBubble
+            key={`${message.role}-${index}`}
+            role={message.role}
+            content={message.content}
+            properties={message.properties}
+          />
         ))}
         {isLoading && (
           <div className="flex justify-start">
