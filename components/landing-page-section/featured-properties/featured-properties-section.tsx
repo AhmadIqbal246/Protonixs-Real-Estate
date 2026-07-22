@@ -20,7 +20,7 @@ export function FeaturedPropertiesSection() {
       id="featured-properties"
       className="relative px-6 py-14 md:px-12 md:py-16 lg:px-16"
     >
-      <div className="rounded-[2rem] border border-[color:var(--color-line)] bg-surface/70 p-6 shadow-[0_24px_64px_rgba(26,26,28,0.05)] backdrop-blur-sm md:p-10">
+      <div className="mx-auto max-w-7xl">
         <div data-reveal>
           <SectionHeading
             tone="cinematic"

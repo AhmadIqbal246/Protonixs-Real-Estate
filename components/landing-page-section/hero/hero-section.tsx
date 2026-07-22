@@ -97,14 +97,14 @@ export function HeroSection() {
           </h1>
           <p
             ref={copyRef}
-            className="mx-auto mb-5 max-w-xl text-base text-muted opacity-0 md:text-lg"
+            className="mx-auto mb-6 max-w-xl text-base text-text/80 opacity-0 md:text-lg"
           >
             Discreet advisory for buyers, sellers, and investors seeking exceptional residences
             across the world&apos;s most desirable markets.
           </p>
           <p
             ref={marketsRef}
-            className="mb-9 text-xs font-medium uppercase tracking-[0.22em] text-champagne opacity-0 md:text-[13px]"
+            className="mb-9 text-xs font-semibold uppercase tracking-[0.24em] text-text opacity-0 md:text-sm"
           >
             New York · Beverly Hills · Miami Beach · Private Advisory
           </p>

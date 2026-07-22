@@ -22,13 +22,10 @@ export default function Home() {
             <HeroSection />
           </div>
           <div data-scroll-zoom className="w-full will-change-transform">
-            <MarketsSection />
+            <FeaturedPropertiesSection />
           </div>
           <div className="w-full">
             <WhyChooseUsSection />
-          </div>
-          <div data-scroll-zoom className="w-full will-change-transform">
-            <FeaturedPropertiesSection />
           </div>
           <div data-scroll-zoom className="w-full will-change-transform">
             <StatisticsSection />
