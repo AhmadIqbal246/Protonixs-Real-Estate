@@ -20,23 +20,23 @@ export function ListingDetailGallery({ property }: ListingDetailGalleryProps) {
             Spaces within the residence
           </h2>
           <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-            <div className="relative aspect-[16/11] overflow-hidden md:aspect-auto md:min-h-[28rem]">
+            <div className="group relative aspect-[16/11] overflow-hidden rounded-xl border border-[color:var(--color-line)] bg-surface shadow-[0_8px_24px_rgba(26,26,28,0.04)] md:aspect-auto md:min-h-[28rem]">
               <Image
                 src={primary}
                 alt={`${property.title} primary gallery`}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className="grid gap-4">
               {rest.slice(0, 2).map((src, index) => (
-                <div key={`${src}-${index}`} className="relative aspect-[16/10] overflow-hidden">
+                <div key={`${src}-${index}`} className="group relative aspect-[16/10] overflow-hidden rounded-xl border border-[color:var(--color-line)] bg-surface shadow-[0_8px_24px_rgba(26,26,28,0.04)]">
                   <Image
                     src={src}
                     alt={`${property.title} gallery ${index + 2}`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>

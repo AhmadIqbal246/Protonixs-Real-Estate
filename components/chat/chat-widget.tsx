@@ -74,17 +74,17 @@ export function ChatWidget() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="cursor-pointer rounded-full border border-white/25 bg-black/55 px-4 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform hover:scale-[1.02]"
+            className="cursor-pointer rounded-full border border-[color:var(--color-line)] bg-surface/90 px-4 py-2 text-left shadow-[0_12px_32px_rgba(26,26,28,0.1)] backdrop-blur-md transition-transform hover:scale-[1.02]"
             aria-label="Open chat assistant"
           >
-            <p className="text-sm font-semibold text-white">Chat with us</p>
-            <p className="text-[11px] text-gray-300">We&apos;re here to help</p>
+            <p className="text-sm font-semibold text-text">Chat with us</p>
+            <p className="text-[11px] text-muted">We&apos;re here to help</p>
           </button>
         )}
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white text-black shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
+          className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-[color:var(--color-line)] bg-accent text-ink shadow-[0_12px_40px_rgba(26,26,28,0.16)] transition-transform hover:scale-105 hover:bg-jet"
           aria-label={open ? "Close chat assistant" : "Open chat assistant"}
           aria-expanded={open}
         >

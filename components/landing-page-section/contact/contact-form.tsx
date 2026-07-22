@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 
 const inputClassName =
-  "w-full rounded-xl border border-[color:var(--color-line)] bg-ink px-4 py-3 text-sm text-text placeholder:text-muted outline-none transition-colors focus:border-accent/60 focus:ring-2 focus:ring-accent/20";
+  "w-full rounded-xl border border-[color:var(--color-line)] bg-surface px-4 py-3 text-sm text-text placeholder:text-muted outline-none transition-colors focus:border-accent/45 focus:ring-2 focus:ring-accent/15";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,8 +13,8 @@ export function ContactForm() {
   };
   if (submitted) {
     return (
-      <div className="flex min-h-[320px] flex-col items-center justify-center rounded-xl border border-[color:var(--color-line)] bg-ink p-8 text-center">
-        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 bg-surface">
+      <div className="flex min-h-[320px] flex-col items-center justify-center rounded-xl border border-[color:var(--color-line)] bg-surface-raised p-8 text-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-accent/25 bg-surface">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-7 w-7 text-accent" aria-hidden="true">
             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -72,7 +72,7 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
-        className="w-full cursor-pointer rounded-xl bg-accent px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-[#dce0e6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-auto"
+        className="w-full cursor-pointer rounded-xl bg-accent px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-jet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-auto"
       >
         Send Message
       </button>

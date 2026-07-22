@@ -105,7 +105,7 @@ export function Masonry({
           key={item.id}
           href={item.url}
           data-key={item.id}
-          className="absolute box-border cursor-pointer overflow-hidden rounded-xl"
+          className="absolute box-border cursor-pointer overflow-hidden rounded-xl border border-[color:var(--color-line)] shadow-[0_8px_24px_rgba(26,26,28,0.06)]"
           style={{ willChange: "transform, width, height, opacity" }}
           onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
@@ -114,19 +114,19 @@ export function Masonry({
             className="relative h-full w-full bg-cover bg-center"
             style={{ backgroundImage: `url(${item.img})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             {colorShiftOnHover ? (
               <div className="color-overlay pointer-events-none absolute inset-0 bg-gradient-to-tr from-accent/40 to-transparent opacity-0" />
             ) : null}
             {(item.title || item.subtitle) && (
               <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
                 {item.subtitle ? (
-                  <p className="mb-1 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+                  <span className="mb-2 inline-block rounded-md bg-surface/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent shadow-sm backdrop-blur-sm">
                     {item.subtitle}
-                  </p>
+                  </span>
                 ) : null}
                 {item.title ? (
-                  <p className="font-display text-base text-text md:text-lg">{item.title}</p>
+                  <p className="font-display text-lg font-medium text-white drop-shadow-sm md:text-xl">{item.title}</p>
                 ) : null}
               </div>
             )}

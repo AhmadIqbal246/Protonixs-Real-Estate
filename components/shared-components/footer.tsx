@@ -20,8 +20,8 @@ export function Footer({ variant = "default" }: FooterProps) {
     <footer
       className={`relative border-t px-6 py-12 md:px-12 lg:px-16 ${
         isCinematic
-          ? "border-[color:var(--color-line)] bg-surface"
-          : "border-white/20 bg-black/25 backdrop-blur-sm"
+          ? "border-[color:var(--color-line)] bg-surface/90 backdrop-blur-sm"
+          : "border-[color:var(--color-line)] bg-surface/80 backdrop-blur-sm"
       }`}
     >
       <ScrollReveal variant="fade-up">
@@ -31,23 +31,15 @@ export function Footer({ variant = "default" }: FooterProps) {
               className={`tracking-tight ${
                 isCinematic
                   ? "font-display text-2xl text-text"
-                  : "text-2xl font-semibold text-white drop-shadow-md"
+                  : "font-display text-2xl text-text"
               }`}
             >
               Protonix Estate
             </p>
-            <p
-              className={`mt-3 max-w-xs text-sm ${
-                isCinematic ? "text-muted" : "text-white/90 drop-shadow-sm"
-              }`}
-            >
+            <p className="mt-3 max-w-xs text-sm text-muted">
               Premium real estate advisory for buyers, sellers, and investors who move with purpose.
             </p>
-            <p
-              className={`mt-3 max-w-xs text-sm ${
-                isCinematic ? "text-muted" : "text-white/75 drop-shadow-sm"
-              }`}
-            >
+            <p className="mt-3 max-w-xs text-sm text-muted">
               From first-time purchases to portfolio growth, we guide every step with local expertise
               and transparent advice.
             </p>
@@ -58,11 +50,7 @@ export function Footer({ variant = "default" }: FooterProps) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className={`cursor-pointer text-sm font-medium transition-colors ${
-                      isCinematic
-                        ? "text-text hover:text-accent"
-                        : "text-white drop-shadow-sm hover:text-white/75"
-                    }`}
+                    className="cursor-pointer text-sm font-medium text-text transition-colors hover:text-accent"
                   >
                     {link.label}
                   </Link>
@@ -70,44 +58,26 @@ export function Footer({ variant = "default" }: FooterProps) {
               ))}
             </ul>
           </nav>
-          <div
-            className={`text-sm ${
-              isCinematic ? "text-muted" : "text-white drop-shadow-sm"
-            }`}
-          >
+          <div className="text-sm text-muted">
             <a
               href={`mailto:${contactInfo.email}`}
-              className={`cursor-pointer transition-colors ${
-                isCinematic ? "hover:text-accent" : "hover:text-white/75"
-              }`}
+              className="cursor-pointer transition-colors hover:text-accent"
             >
               {contactInfo.email}
             </a>
             <p className="mt-1">
               <a
                 href={`tel:${contactInfo.phone}`}
-                className={`cursor-pointer transition-colors ${
-                  isCinematic ? "hover:text-accent" : "hover:text-white/75"
-                }`}
+                className="cursor-pointer transition-colors hover:text-accent"
               >
                 {contactInfo.phoneDisplay}
               </a>
             </p>
-            <p className={`mt-3 ${isCinematic ? "text-muted" : "text-white/75"}`}>
-              {contactInfo.office}
-            </p>
-            <p className={`mt-1 ${isCinematic ? "text-muted" : "text-white/75"}`}>
-              {contactInfo.hours}
-            </p>
+            <p className="mt-3 text-muted">{contactInfo.office}</p>
+            <p className="mt-1 text-muted">{contactInfo.hours}</p>
           </div>
         </div>
-        <p
-          className={`mt-10 border-t pt-6 text-center text-xs ${
-            isCinematic
-              ? "border-[color:var(--color-line)] text-muted"
-              : "border-white/20 text-white/80 drop-shadow-sm"
-          }`}
-        >
+        <p className="mt-10 border-t border-[color:var(--color-line)] pt-6 text-center text-xs text-muted">
           &copy; {new Date().getFullYear()} Protonix Estate. All rights reserved.
         </p>
       </ScrollReveal>

@@ -22,7 +22,7 @@ export function ValuesSection() {
           <ScrollReveal key={value.id} delay={index * 80} variant="fade-up">
             <article className="border-t border-[color:var(--color-line)] pt-6">
               <div className="flex items-baseline gap-4">
-                <span className="font-display text-sm text-accent">
+                <span className="font-display text-sm text-champagne">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-xl text-text md:text-2xl">{value.title}</h3>

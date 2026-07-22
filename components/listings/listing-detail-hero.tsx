@@ -18,18 +18,18 @@ export function ListingDetailHero({ property }: ListingDetailHeroProps) {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/35 via-transparent to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/20 via-transparent to-transparent" />
       <div className="relative z-10 flex min-h-[78vh] flex-col justify-end px-6 pb-12 pt-28 md:min-h-[88vh] md:px-12 md:pb-16 lg:px-16">
         <ScrollReveal variant="fade-up">
           <div className="mx-auto w-full max-w-6xl">
             <Link
               href="/listings"
-              className="mb-6 inline-flex cursor-pointer text-xs font-medium uppercase tracking-[0.22em] text-accent transition-colors hover:text-text"
+              className="mb-6 inline-flex cursor-pointer items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-accent transition-colors hover:text-jet"
             >
-              Back to listings
+              <span>←</span> Back to listings
             </Link>
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-accent">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-champagne md:text-sm">
               {property.tag}
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.08] tracking-tight text-text md:text-5xl lg:text-6xl">
@@ -42,7 +42,7 @@ export function ListingDetailHero({ property }: ListingDetailHeroProps) {
               </p>
               <Link
                 href={`/contact?property=${encodeURIComponent(property.title)}`}
-                className="cursor-pointer rounded-lg bg-accent px-7 py-3 text-sm font-medium text-ink transition-colors hover:bg-[#dce0e6]"
+                className="cursor-pointer rounded-lg bg-accent px-7 py-3 text-sm font-medium text-ink transition-colors hover:bg-jet"
               >
                 Request a private viewing
               </Link>

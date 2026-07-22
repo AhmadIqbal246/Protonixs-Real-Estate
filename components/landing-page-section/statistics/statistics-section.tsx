@@ -93,7 +93,7 @@ export function StatisticsSection() {
     <section
       ref={sectionRef}
       id="statistics"
-      className="relative border-y border-[color:var(--color-line)] bg-surface/92 px-6 py-12 md:px-12 md:py-14 lg:px-16"
+      className="relative border-y border-[color:var(--color-line)] bg-surface/85 px-6 py-12 backdrop-blur-sm md:px-12 md:py-14 lg:px-16"
     >
       <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {statistics.map((stat) => (

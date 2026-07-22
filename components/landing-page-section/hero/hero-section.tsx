@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=85";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,8 +65,20 @@ export function HeroSection() {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={sectionRef} className="relative flex min-h-screen flex-col">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/25 via-transparent to-transparent" />
+    <section ref={sectionRef} className="relative flex min-h-screen flex-col overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-transparent to-ink/35" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(247,246,243,0.45)_100%)]" />
+      </div>
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-14 pt-28 text-center md:px-12 md:pb-16 lg:px-16">
         <div className="max-w-3xl">
           <p
@@ -88,7 +104,7 @@ export function HeroSection() {
           </p>
           <p
             ref={marketsRef}
-            className="mb-9 text-xs font-medium uppercase tracking-[0.22em] text-accent/90 opacity-0 md:text-[13px]"
+            className="mb-9 text-xs font-medium uppercase tracking-[0.22em] text-champagne opacity-0 md:text-[13px]"
           >
             New York · Beverly Hills · Miami Beach · Private Advisory
           </p>
@@ -98,13 +114,13 @@ export function HeroSection() {
           >
             <Link
               href="/contact"
-              className="cursor-pointer rounded-lg bg-accent px-8 py-3 font-medium text-ink transition-colors hover:bg-[#dce0e6]"
+              className="cursor-pointer rounded-lg bg-accent px-8 py-3 font-medium text-ink transition-colors hover:bg-jet"
             >
               Book a private consultation
             </Link>
             <Link
               href="#featured-properties"
-              className="cursor-pointer rounded-lg border border-[color:var(--color-line)] bg-surface/60 px-8 py-3 font-medium text-text transition-colors hover:border-accent/50 hover:bg-surface"
+              className="cursor-pointer rounded-lg border border-[color:var(--color-line)] bg-surface/80 px-8 py-3 font-medium text-text shadow-[0_8px_24px_rgba(26,26,28,0.06)] backdrop-blur-sm transition-colors hover:border-accent/35 hover:bg-surface"
             >
               View featured residences
             </Link>

@@ -44,8 +44,8 @@ interface BounceCardFaceProps {
 export function BounceCardFace({ src, alt, className = "" }: BounceCardFaceProps) {
   return (
     <div
-      className={`card-inner overflow-hidden rounded-2xl border-2 border-accent/40 ${className}`}
-      style={{ boxShadow: "0 18px 44px rgba(0, 0, 0, 0.48)" }}
+      className={`card-inner overflow-hidden rounded-2xl border border-[color:var(--color-line)] ${className}`}
+      style={{ boxShadow: "0 20px 48px rgba(26, 26, 28, 0.14)" }}
     >
       <div className="relative h-full w-full">
         <Image src={src} alt={alt} fill className="object-cover" sizes="280px" />

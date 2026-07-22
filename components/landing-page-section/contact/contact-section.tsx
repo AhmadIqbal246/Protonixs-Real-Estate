@@ -13,7 +13,7 @@ export function ContactSection() {
       id="contact"
       className="relative bg-transparent px-6 py-14 md:px-12 md:py-16 lg:px-16"
     >
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-[color:var(--color-line)] bg-surface p-6 md:p-10 lg:p-12">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[color:var(--color-line)] bg-surface/90 p-6 shadow-[0_24px_64px_rgba(26,26,28,0.06)] backdrop-blur-sm md:p-10 lg:p-12">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
           <div data-reveal>
             <SectionHeading
@@ -29,7 +29,7 @@ export function ContactSection() {
             data-reveal
             className="relative overflow-hidden rounded-2xl border border-[color:var(--color-line)] bg-surface-raised p-6 md:p-8"
           >
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/55 to-transparent" />
             <h3 className="relative mb-6 font-display text-xl text-text">Send us a message</h3>
             <ContactForm />
           </div>

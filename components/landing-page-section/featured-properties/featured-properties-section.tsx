@@ -18,9 +18,9 @@ export function FeaturedPropertiesSection() {
     <section
       ref={sectionRef}
       id="featured-properties"
-      className="relative bg-transparent px-6 py-14 md:px-12 md:py-16 lg:px-16"
+      className="relative px-6 py-14 md:px-12 md:py-16 lg:px-16"
     >
-      <div className="p-6 md:p-10">
+      <div className="rounded-[2rem] border border-[color:var(--color-line)] bg-surface/70 p-6 shadow-[0_24px_64px_rgba(26,26,28,0.05)] backdrop-blur-sm md:p-10">
         <div data-reveal>
           <SectionHeading
             tone="cinematic"
@@ -46,7 +46,7 @@ export function FeaturedPropertiesSection() {
             />
           </div>
           <div className="mt-8 max-w-md text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-champagne">
               {active.tag}
             </p>
             <h3 className="mt-2 font-display text-2xl text-text md:text-3xl">
@@ -56,7 +56,7 @@ export function FeaturedPropertiesSection() {
             <p className="mt-3 text-lg font-semibold text-text">{active.price}</p>
             <Link
               href="/listings"
-              className="mt-5 inline-block cursor-pointer text-sm font-medium text-accent transition-colors hover:text-text"
+              className="mt-5 inline-block cursor-pointer text-sm font-medium text-accent transition-colors hover:text-jet"
             >
               View all listings &rarr;
             </Link>

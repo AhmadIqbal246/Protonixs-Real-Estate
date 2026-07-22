@@ -15,8 +15,8 @@ export function ChatMessageBubble({ role, content, properties }: ChatMessageBubb
         <div
           className={`rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
             isUser
-              ? "bg-white text-black"
-              : "border border-white/25 bg-white/10 text-white backdrop-blur-md"
+              ? "bg-accent text-ink"
+              : "border border-[color:var(--color-line)] bg-surface text-text"
           }`}
         >
           {content}

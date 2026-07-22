@@ -5,7 +5,7 @@ export function ServicesHero() {
     <section className="relative px-6 pb-12 pt-28 md:px-12 md:pt-32 lg:px-16">
       <ScrollReveal>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-accent">
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-champagne">
             Our Services
           </p>
           <h1 className="font-display text-4xl tracking-tight text-text md:text-5xl lg:text-6xl">

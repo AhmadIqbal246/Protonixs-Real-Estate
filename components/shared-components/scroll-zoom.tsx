@@ -27,7 +27,7 @@ export function ScrollZoom({ children, className = "" }: ScrollZoomProps) {
         gsap.set(section, {
           transformOrigin: "50% 50%",
           force3D: true,
-          willChange: "transform",
+          willChange: "transform, opacity",
         });
         const timeline = gsap.timeline({
           defaults: { ease: "none" },
@@ -35,13 +35,17 @@ export function ScrollZoom({ children, className = "" }: ScrollZoomProps) {
             trigger: section,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.65,
+            scrub: 0.85,
             invalidateOnRefresh: true,
           },
         });
         timeline
-          .fromTo(section, { scale: 0.88 }, { scale: 1, duration: 0.45 })
-          .to(section, { scale: 0.68, duration: 0.55 });
+          .fromTo(
+            section,
+            { scale: 0.9, opacity: 0.45 },
+            { scale: 1, opacity: 1, duration: 0.42 },
+          )
+          .to(section, { scale: 0.88, opacity: 0.55, duration: 0.58 });
       });
     }, root);
     const refresh = window.setTimeout(() => ScrollTrigger.refresh(), 150);

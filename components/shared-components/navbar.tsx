@@ -31,7 +31,7 @@ export function Navbar({ variant = "default" }: NavbarProps) {
             href="/"
             onClick={closeMenu}
             className={`cursor-pointer tracking-tight sm:text-xl md:text-2xl ${
-              isCinematic ? "font-display text-lg text-text" : "text-lg font-semibold"
+              isCinematic ? "font-display text-lg text-text" : "text-lg font-semibold text-text"
             }`}
           >
             Protonix Estate
@@ -42,7 +42,7 @@ export function Navbar({ variant = "default" }: NavbarProps) {
                 <Link
                   href={link.href}
                   className={`cursor-pointer text-sm transition-colors ${
-                    isCinematic ? "text-muted hover:text-text" : "hover:text-gray-300"
+                    isCinematic ? "text-muted hover:text-text" : "text-muted hover:text-text"
                   }`}
                 >
                   {link.label}
@@ -55,8 +55,8 @@ export function Navbar({ variant = "default" }: NavbarProps) {
               href="/contact"
               className={`hidden cursor-pointer rounded-lg px-6 py-2 text-sm font-medium transition-colors lg:inline-flex ${
                 isCinematic
-                  ? "bg-accent text-ink hover:bg-[#dce0e6]"
-                  : "bg-white text-black hover:bg-gray-100"
+                  ? "bg-accent text-ink hover:bg-jet"
+                  : "bg-accent text-ink hover:bg-jet"
               }`}
             >
               Start a Chat
@@ -64,31 +64,31 @@ export function Navbar({ variant = "default" }: NavbarProps) {
             <button
               type="button"
               onClick={() => setOpen((prev) => !prev)}
-              className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border border-white/20 lg:hidden"
+              className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border border-[color:var(--color-line)] lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
               <span
-                className={`h-0.5 w-5 bg-white transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
+                className={`h-0.5 w-5 bg-text transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
               />
               <span
-                className={`h-0.5 w-5 bg-white transition-opacity ${open ? "opacity-0" : ""}`}
+                className={`h-0.5 w-5 bg-text transition-opacity ${open ? "opacity-0" : ""}`}
               />
               <span
-                className={`h-0.5 w-5 bg-white transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
+                className={`h-0.5 w-5 bg-text transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
               />
             </button>
           </div>
         </nav>
         {open ? (
-          <div className={`${shellClass} mt-3 rounded-xl border border-white/20 p-4 lg:hidden`}>
+          <div className={`${shellClass} mt-3 rounded-xl p-4 lg:hidden`}>
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={closeMenu}
-                    className="block cursor-pointer rounded-lg px-3 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                    className="block cursor-pointer rounded-lg px-3 py-3 text-sm font-medium text-text transition-colors hover:bg-surface-raised"
                   >
                     {link.label}
                   </Link>
@@ -98,11 +98,7 @@ export function Navbar({ variant = "default" }: NavbarProps) {
             <Link
               href="/contact"
               onClick={closeMenu}
-              className={`mt-3 block cursor-pointer rounded-lg px-4 py-3 text-center text-sm font-medium transition-colors ${
-                isCinematic
-                  ? "bg-accent text-ink hover:bg-[#dce0e6]"
-                  : "bg-white text-black hover:bg-gray-100"
-              }`}
+              className="mt-3 block cursor-pointer rounded-lg bg-accent px-4 py-3 text-center text-sm font-medium text-ink transition-colors hover:bg-jet"
             >
               Start a Chat
             </Link>

@@ -27,13 +27,13 @@ export function ListingDetailOverview({ property }: ListingDetailOverviewProps) 
             <h2 className="font-display text-3xl tracking-tight text-text md:text-4xl">
               A residence defined by quiet luxury
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#d4d0cb] md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
               {property.description}
             </p>
           </div>
         </ScrollReveal>
         <ScrollReveal variant="slide-left" delay={100}>
-          <div className="border border-[color:var(--color-line)] bg-surface/60 p-6 md:p-8">
+          <div className="rounded-xl border border-[color:var(--color-line)] bg-surface/80 p-6 shadow-[0_8px_30px_rgba(26,26,28,0.04)] backdrop-blur-sm md:p-8">
             <p className="mb-6 text-xs font-medium uppercase tracking-[0.22em] text-accent">
               At a glance
             </p>
@@ -41,13 +41,13 @@ export function ListingDetailOverview({ property }: ListingDetailOverviewProps) 
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex items-baseline justify-between border-b border-white/[0.08] py-4 last:border-b-0"
+                  className="flex items-baseline justify-between border-b border-[color:var(--color-line)] py-4 last:border-b-0"
                 >
                   <dt className="text-sm text-muted">{stat.label}</dt>
                   <dd className="font-display text-2xl text-text">{stat.value}</dd>
                 </div>
               ))}
-              <div className="flex items-baseline justify-between border-b border-white/[0.08] py-4 last:border-b-0">
+              <div className="flex items-baseline justify-between border-b border-[color:var(--color-line)] py-4 last:border-b-0">
                 <dt className="text-sm text-muted">Status</dt>
                 <dd className="text-sm font-medium uppercase tracking-[0.16em] text-accent">
                   {property.tag}

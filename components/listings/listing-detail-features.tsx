@@ -16,16 +16,16 @@ export function ListingDetailFeatures({ property }: ListingDetailFeaturesProps) 
           <h2 className="mb-10 font-display text-3xl tracking-tight text-text md:text-4xl">
             What makes this residence exceptional
           </h2>
-          <ul className="grid grid-cols-1 border-l border-t border-[color:var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 overflow-hidden rounded-xl border-l border-t border-[color:var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
             {property.amenities.map((amenity, index) => (
               <li
                 key={amenity}
-                className="flex items-start gap-4 border-b border-r border-[color:var(--color-line)] bg-transparent px-5 py-6 md:px-6 md:py-7"
+                className="flex items-start gap-4 border-b border-r border-[color:var(--color-line)] bg-surface/40 px-5 py-6 transition-colors hover:bg-surface/80 md:px-6 md:py-7"
               >
                 <span className="font-display text-sm text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="pt-0.5 text-sm text-[#d4d0cb] md:text-base">{amenity}</span>
+                <span className="pt-0.5 text-sm text-text md:text-base">{amenity}</span>
               </li>
             ))}
           </ul>

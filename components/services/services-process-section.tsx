@@ -20,8 +20,8 @@ export function ServicesProcessSection() {
       <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
         {processSteps.map((step, index) => (
           <ScrollReveal key={step.id} delay={index * 100} variant="fade-up">
-            <article className="rounded-2xl border border-[color:var(--color-line)] bg-surface/75 p-6">
-              <span className="text-xs font-medium tracking-[0.2em] text-accent">{step.step}</span>
+            <article className="rounded-2xl border border-[color:var(--color-line)] bg-surface/90 p-6 shadow-[0_12px_32px_rgba(26,26,28,0.04)]">
+              <span className="text-xs font-medium tracking-[0.2em] text-champagne">{step.step}</span>
               <h3 className="mt-2 font-display text-lg text-text">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">{step.description}</p>
             </article>

@@ -151,7 +151,7 @@ export function BounceCards({
             <BounceCardFace
               src={src}
               alt={label}
-              className="aspect-square w-[250px] cursor-pointer md:w-[280px] md:rounded-[30px] md:border-[6px] md:border-accent/50"
+              className="aspect-square w-[250px] cursor-pointer md:w-[280px] md:rounded-[30px] md:border-[5px] md:border-surface"
             />
           );
           if (!href) {

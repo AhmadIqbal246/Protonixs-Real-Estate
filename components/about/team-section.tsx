@@ -30,7 +30,7 @@ export function TeamSection() {
         <div className="mt-10 flex justify-center md:mt-12">
           <Link
             href="/team"
-            className="cursor-pointer rounded-lg border border-[color:var(--color-line)] bg-surface/60 px-8 py-3.5 text-sm font-medium text-text transition-colors hover:border-accent/50 hover:bg-surface"
+            className="cursor-pointer rounded-lg border border-[color:var(--color-line)] bg-surface px-8 py-3.5 text-sm font-medium text-text shadow-[0_8px_24px_rgba(26,26,28,0.05)] transition-colors hover:border-accent/35 hover:bg-surface-raised"
           >
             See all team members
           </Link>

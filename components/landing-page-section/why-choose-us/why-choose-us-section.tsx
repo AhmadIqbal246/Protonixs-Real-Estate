@@ -24,16 +24,16 @@ export function WhyChooseUsSection() {
       <ScrollStack
         itemDistance={120}
         itemStackDistance={30}
-        baseScale={0.88}
-        itemScale={0.03}
+        baseScale={0.92}
+        itemScale={0.025}
         stackPosition="20%"
         scaleEndPosition="10%"
-        blurAmount={1.5}
+        blurAmount={0}
       >
         {benefits.map((benefit, index) => (
           <ScrollStackItem
             key={benefit.id}
-            itemClassName="my-8 overflow-hidden rounded-[40px] border border-white/[0.1] bg-[#0a0a0c] shadow-[0_30px_80px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.06)]"
+            itemClassName="my-8 overflow-hidden rounded-[40px] border border-[color:var(--color-line)] bg-surface shadow-[0_24px_64px_rgba(26,26,28,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]"
           >
             <BenefitStackCard benefit={benefit} index={index} />
           </ScrollStackItem>

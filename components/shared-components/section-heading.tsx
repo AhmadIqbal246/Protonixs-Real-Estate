@@ -21,7 +21,7 @@ export function SectionHeading({
     <div className={`mb-12 max-w-2xl ${alignClass} ${className}`}>
       <p
         className={`mb-3 text-sm font-medium uppercase tracking-[0.22em] ${
-          isCinematic ? "text-accent" : "text-gray-400"
+          isCinematic ? "text-champagne" : "text-muted"
         }`}
       >
         {eyebrow}
