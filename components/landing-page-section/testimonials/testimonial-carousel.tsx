@@ -80,7 +80,7 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
           <button
             type="button"
             onClick={() => setShowAll(false)}
-            className="liquid-glass cursor-pointer rounded-lg border border-white/20 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+            className="cursor-pointer rounded-lg border border-[color:var(--color-line)] bg-surface/70 px-8 py-3 text-sm font-medium text-text transition-colors hover:border-accent/50 hover:bg-accent hover:text-ink"
             aria-label="Show testimonials carousel"
           >
             Show Carousel

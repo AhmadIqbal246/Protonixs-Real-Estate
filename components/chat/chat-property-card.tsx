@@ -34,10 +34,10 @@ export function ChatPropertyCardView({ property }: ChatPropertyCardProps) {
         <p className="text-sm font-semibold text-white">{property.price}</p>
         <p className="text-[11px] text-gray-400">{formatSpecs(property)}</p>
         <Link
-          href="/contact"
+          href={`/listings/${property.slug}`}
           className="mt-2 inline-block cursor-pointer text-xs font-medium text-white transition-colors hover:text-gray-300"
         >
-          Inquire about this property &rarr;
+          View listing details &rarr;
         </Link>
       </div>
     </article>

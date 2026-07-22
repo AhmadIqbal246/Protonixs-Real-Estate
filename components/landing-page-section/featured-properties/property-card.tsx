@@ -15,7 +15,7 @@ function formatSpecs(property: Property) {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <article className="group w-[220px] shrink-0 overflow-hidden rounded-xl border border-white/25 bg-black/70 shadow-[0_8px_32px_rgba(0,0,0,0.15)] sm:w-[240px] md:w-[252px]">
+    <article className="group w-[220px] shrink-0 overflow-hidden rounded-xl border border-[color:var(--color-line)] bg-surface-raised shadow-[0_12px_40px_rgba(0,0,0,0.35)] sm:w-[240px] md:w-[252px]">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={property.image}
@@ -25,18 +25,18 @@ export function PropertyCard({ property }: PropertyCardProps) {
           sizes="252px"
           loading="lazy"
         />
-        <span className="absolute left-3 top-3 rounded-md bg-white px-2.5 py-0.5 text-[11px] font-semibold text-black">
+        <span className="absolute left-3 top-3 rounded-md bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-ink">
           {property.tag}
         </span>
       </div>
       <div className="p-4">
-        <h3 className="text-sm font-semibold text-white drop-shadow-sm">{property.title}</h3>
-        <p className="mt-1 text-xs text-gray-300 drop-shadow-sm">{property.location}</p>
-        <p className="mt-2 text-base font-semibold text-white drop-shadow-sm">{property.price}</p>
-        <p className="mt-2 text-[11px] text-gray-300 drop-shadow-sm">{formatSpecs(property)}</p>
+        <h3 className="text-sm font-semibold text-text">{property.title}</h3>
+        <p className="mt-1 text-xs text-muted">{property.location}</p>
+        <p className="mt-2 text-base font-semibold text-text">{property.price}</p>
+        <p className="mt-2 text-[11px] text-muted">{formatSpecs(property)}</p>
         <Link
           href="#contact"
-          className="mt-3 inline-block cursor-pointer text-xs font-medium text-white transition-colors hover:text-gray-300"
+          className="mt-3 inline-block cursor-pointer text-xs font-medium text-accent transition-colors hover:text-text"
         >
           View Details &rarr;
         </Link>

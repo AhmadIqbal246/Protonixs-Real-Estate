@@ -1,6 +1,21 @@
 import { ChatWidget } from "@/components/chat/chat-widget";
 import type { Metadata } from "next";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const bodoniModa = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Protonix Estate",
@@ -13,16 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-black font-sans text-white antialiased">
+    <html lang="en" className={`${manrope.variable} ${bodoniModa.variable}`}>
+      <body className="bg-ink font-sans text-text antialiased">
         {children}
         <ChatWidget />
       </body>

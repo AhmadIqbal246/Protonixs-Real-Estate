@@ -108,8 +108,8 @@ export function PropertyCarousel({ properties }: PropertyCarouselProps) {
   };
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black/50 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-surface to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-surface to-transparent" />
       <div
         className="cursor-grab touch-pan-y select-none overflow-hidden pb-1 active:cursor-grabbing"
         onPointerDown={onPointerDown}
@@ -137,7 +137,7 @@ export function PropertyCarousel({ properties }: PropertyCarouselProps) {
           ))}
         </div>
       </div>
-      <p className="mt-4 text-center text-xs text-gray-400">
+      <p className="mt-4 text-center text-xs text-muted">
         Drag left or right to browse · Auto-plays when idle
       </p>
     </div>

@@ -1,5 +1,6 @@
 export interface ChatPropertyCard {
   id: string;
+  slug: string;
   title: string;
   location: string;
   price: string;

@@ -8,13 +8,13 @@ interface ContactDetailItemProps {
 
 function ContactDetailItem({ label, value, href }: ContactDetailItemProps) {
   const content = (
-    <span className="text-sm font-medium text-white drop-shadow-sm">{value}</span>
+    <span className="text-sm font-medium text-text">{value}</span>
   );
   return (
-    <div className="rounded-xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-md">
-      <p className="text-xs font-medium uppercase tracking-wider text-gray-300">{label}</p>
+    <div className="rounded-xl border border-[color:var(--color-line)] bg-surface-raised px-4 py-3">
+      <p className="text-xs font-medium uppercase tracking-wider text-accent">{label}</p>
       {href ? (
-        <a href={href} className="mt-1 inline-block cursor-pointer transition-colors hover:text-gray-200">
+        <a href={href} className="mt-1 inline-block cursor-pointer transition-colors hover:text-accent">
           {content}
         </a>
       ) : (

@@ -3,18 +3,17 @@ import { statistics } from "@/lib/data/statistics";
 
 export function AboutStatsSection() {
   return (
-    <section className="relative border-y border-white/10 px-6 py-16 md:px-12 lg:px-16">
-      <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+    <section className="relative border-y border-[color:var(--color-line)] bg-surface/80 px-6 py-10 md:px-12 md:py-12 lg:px-16">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-6">
         {statistics.map((stat, index) => (
-          <ScrollReveal key={stat.id} delay={index * 100} variant="fade-up">
-            <div className="text-center">
-              <p
-                className="text-4xl font-normal text-white drop-shadow-md md:text-5xl"
-                style={{ letterSpacing: "-0.03em" }}
-              >
+          <ScrollReveal key={stat.id} delay={index * 80} variant="fade-up">
+            <div className="text-center lg:text-left">
+              <p className="font-display text-3xl tracking-tight text-text md:text-4xl lg:text-5xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-gray-300">{stat.label}</p>
+              <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-muted md:text-sm">
+                {stat.label}
+              </p>
             </div>
           </ScrollReveal>
         ))}

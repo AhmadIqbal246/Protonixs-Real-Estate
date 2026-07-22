@@ -5,6 +5,7 @@ import type { Property } from "@/lib/types/property";
 function toChatProperty(property: Property): ChatPropertyCard {
   return {
     id: property.id,
+    slug: property.slug,
     title: property.title,
     location: property.location,
     price: property.price,

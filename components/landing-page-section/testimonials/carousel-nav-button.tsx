@@ -15,7 +15,7 @@ export function CarouselNavButton({
     <button
       type="button"
       onClick={onClick}
-      className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/50 hover:bg-black/55 md:h-16 md:w-16 md:bg-white/10 md:hover:bg-white/20 ${className}`}
+      className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[color:var(--color-line)] bg-surface text-text transition-all duration-300 hover:scale-105 hover:border-accent/50 hover:bg-surface-raised md:h-16 md:w-16 ${className}`}
       aria-label={label}
     >
       <svg

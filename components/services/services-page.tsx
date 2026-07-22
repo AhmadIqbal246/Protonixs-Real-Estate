@@ -7,7 +7,9 @@ export function ServicesPage() {
   return (
     <PageShell>
       <ServicesHero />
-      <ServicesGrid />
+      <div data-skip-scroll-zoom>
+        <ServicesGrid />
+      </div>
       <ServicesProcessSection />
     </PageShell>
   );
